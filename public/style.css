@@ -444,4 +444,5 @@ main .blogCard .blogWritter {
   }
   
 .formsContainer form .signup-link a {
-    text-decoration: unde
+    text-decoration: underline;
+  }
