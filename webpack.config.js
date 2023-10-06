@@ -9,5 +9,5 @@ module.exports = {
         // filename: '[name].js'
         // filename: '[name].min.js'
     },
-    watch : true
+
 }
