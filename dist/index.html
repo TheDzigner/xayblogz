@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- // Header Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- // Body Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/public/style.css" />
+    <script src="blogs.js" defer></script>
+    <script src="bundle.js" defer></script>
+    <title>XayBlogZ</title>
+  </head>
+  <body>
+    <header>
+      <h1>XayBlogZ</h1>
+      <nav>
+        <ul>
+          <li>
+            <button role="button" id="openCreateBlogBtn">new blog</button>
+          </li>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        <button role="button" id="loginBtn">Login</button>
+        <button role="button" id="registerBtn">Register</button>
+        <button role="button" id="signOutBtn">Logout</button>
+
+        <button class="openMobileMenu" onclick="document.querySelector('.mobile_menu').classList.toggle('active')">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="30"
+            fill="#FFFFFF"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M220,128a4,4,0,0,1-4,4H40a4,4,0,0,1,0-8H216A4,4,0,0,1,220,128ZM40,68H216a4,4,0,0,0,0-8H40a4,4,0,0,0,0,8ZM216,188H40a4,4,0,0,0,0,8H216a4,4,0,0,0,0-8Z"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    <div class="mobile_menu">
+      <nav>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+        <button role="button" id="loginBtnMobile">Login</button>
+        <button role="button" id="registerBtnMobile">Register</button>
+        <button role="button" id="signOutBtnMobile">Logout</button>
+      </nav>
+    </div>
+
+    <button id="openCreateBlogOnMobile">
+      <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#000000" viewBox="0 0 256 256"><path d="M216,44H40A12,12,0,0,0,28,56V200a12,12,0,0,0,12,12H216a12,12,0,0,0,12-12V56A12,12,0,0,0,216,44Zm4,156a4,4,0,0,1-4,4H40a4,4,0,0,1-4-4V56a4,4,0,0,1,4-4H216a4,4,0,0,1,4,4ZM180,96a4,4,0,0,1-4,4H80a4,4,0,0,1,0-8h96A4,4,0,0,1,180,96Zm0,32a4,4,0,0,1-4,4H80a4,4,0,0,1,0-8h96A4,4,0,0,1,180,128Zm0,32a4,4,0,0,1-4,4H80a4,4,0,0,1,0-8h96A4,4,0,0,1,180,160Z"></path></svg>
+    </button>
+
+    <main id="blogsContainer"></main>
+
+    <form id="createBlogForm">
+      <label for="blogTitle">
+        <h3>MOoD:</h3>
+        <input
+          type="text"
+          id="blogTitle"
+          name="blogTitle"
+          placeholder="How do you feel !??"
+          required
+        />
+      </label>
+      <label for="blogContent">
+        <h3>Content:</h3>
+        <textarea
+          id="blogContent"
+          name="blogContent"
+          placeholder="Tell your thoughts"
+          required
+        ></textarea>
+      </label>
+      <button type="submit" role="button">post</button>
+    </form>
+
+    <div class="formsContainer">
+      <form class="form signIn" id="signInForm">
+        <p class="form-title">Sign in to your account</p>
+        <div class="input-container">
+          <input placeholder="Enter email" type="email" id="signInEmail" />
+          <span>
+            <svg
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </span>
+        </div>
+        <div class="input-container">
+          <input
+            placeholder="Enter password"
+            type="password"
+            id="signInPasswrod"
+          />
+
+          <span>
+            <svg
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+              <path
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </span>
+        </div>
+        <button class="submit" type="submit">Sign in</button>
+
+        <p class="signup-link">
+          No account?
+          <a href="">Sign up</a>
+        </p>
+      </form>
+
+      <form class="form signUp" id="registerForm">
+        <p class="form-title">Sign up to your account</p>
+        <div class="input-container">
+          <input
+            placeholder="Enter email"
+            type="email"
+            id="signUpEmail"
+            required
+          />
+          <span>
+            <svg
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </span>
+        </div>
+        <div class="input-container">
+          <input
+            placeholder="Enter password"
+            type="password"
+            id="signUpPassword"
+            required
+          />
+          <span>
+            <svg
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+              <path
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </span>
+        </div>
+
+        <div class="input-container">
+          <input
+            placeholder="Enter Username"
+            type="text"
+            id="signUpUsername"
+            required
+          />
+          <span>
+            <svg
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 
+          0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+              ></path>
+            </svg>
+          </span>
+        </div>
+
+        <button class="submit" type="submit">Sign up</button>
+
+        <p class="signup-link">
+          already have an account?
+          <a href="">Sign in</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
